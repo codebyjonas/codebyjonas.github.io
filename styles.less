@@ -1,0 +1,178 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+    ##### Table Of Contence #####
+    0. Mixins 
+    1. General Settings 
+    1.a Fonts & Headings
+    1.b Color vars
+    2. Page elements 
+    2.a Navigation
+    2.b Background shapes
+    3. Specific Page elements
+    3.a Main Content
+*/
+
+.skew (@deg, @deg2) {
+	-webkit-transform:       skew(@deg, @deg2);
+	-moz-transform: 	 skew(@deg, @deg2);
+	-ms-transform: 		 skew(@deg, @deg2);
+	-o-transform: 		 skew(@deg, @deg2);
+}
+
+
+/* #####
+    1. General Settings
+    1.a Fonts & Headings
+*/
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+h1{
+    font-family: 'Zilla slab', serif;
+    font-size: 4em;
+}
+
+h2{
+    font-family: 'Zilla slab', serif;
+    font-size: 2em;
+}
+
+/* ######
+    1.b Color vars
+*/
+
+@primaryColor: #3498db;
+@primaryColorShade: #3087c2; 
+
+@secondaryColor: #1abc9c;
+@secondaryColorShade: #16a085;
+
+@lightColor: #ecf0f1;
+@lightColorShade: #bdc3c7;
+
+@darkColor: #2c3e50;
+
+/* #####
+    2.Page elements
+*/
+
+/* ##### 
+    2.b background shapes
+*/
+
+.bg-parallellogram{
+    width: 100vw;
+    height: 100vh;
+    .skew(45deg, 0);
+}
+
+
+/* #####
+    3. Specific Page elements
+    3.a Main Content
+*/
+
+#main-content{
+    background-color: @primaryColor;
+    color: @lightColor;
+    border-bottom: solid 1em @lightColorShade; 
+    
+    height: 100vh;
+    text-align: center;
+    box-sizing: border-box;
+    position: relative;
+
+    .text-container{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+    
+        .hero-text{
+            text-shadow: 0 .05em 0 @lightColorShade;
+        }
+
+        .tag-line-container{
+            border-top: solid .4em @lightColor;
+            border-bottom: solid .4em @lightColor;
+            
+            padding: .75em;
+            margin: 2em auto 0 auto;
+            width: 70%;
+            position: relative;
+            .tag-line{
+
+            }
+            &:before{
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                left: 0px;
+                bottom: -.6em;
+                border-top: solid .2em @lightColorShade;
+                border-bottom: solid .2em @lightColorShade;
+            }
+        }
+    }
+
+    .bg-parallellogram{
+        background-color: @primaryColorShade;
+        position: relative;
+        z-index: 1;
+        height: 97vh;
+    }
+
+}
