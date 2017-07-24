@@ -56,6 +56,10 @@ table {
     2. Page elements 
     2.a Navigation
     2.b Background shapes
+    2.c Grid
+    2.d Headings
+    2.e Article
+    2.f Info box
     3. Specific Page elements
     3.a Main Content
 */
@@ -88,6 +92,11 @@ h2{
     font-size: 2em;
 }
 
+h3{
+    font-size: 1.5em;
+    font-family: 'Zilla slab', serif;
+}
+
 /* ######
     1.b Color vars
 */
@@ -104,11 +113,11 @@ h2{
 @darkColor: #2c3e50;
 
 /* #####
-    2.Page elements
+    2. Page elements
 */
 
 /* ##### 
-    2.b background shapes
+    2.b Background shapes
 */
 
 .bg-parallellogram{
@@ -117,6 +126,83 @@ h2{
     .skew(45deg, 0);
 }
 
+/* ######
+    2.c Grid
+*/
+
+.grid-container{
+    margin: 0 1rem;
+}
+
+.col{
+    margin-bottom: 2em;
+}
+/* ######
+    2.d Headings
+*/
+
+.section-heading-container{
+    text-align: center;
+    margin-bottom: 2em;
+
+    .section-heading{
+        display: inline;
+        position: relative;
+
+        color: @primaryColor;
+        border-bottom: solid .4rem #fff;
+        
+        &:before{
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                left: 0px;
+                bottom: -.6rem;
+                border-bottom: solid .2rem @lightColorShade;
+            }
+    }
+    
+}
+
+/* ######
+    2.e Article
+*/
+
+article{
+    color: @darkColor;
+
+    h3{
+        margin-bottom: .25em;
+    }
+    p{
+        line-height: 1.5em;
+        margin-bottom: 1em;
+        text-align: justify;
+    }
+
+
+}
+
+/* #####
+    2.f Info boxes
+*/
+
+.info-box-container{
+    
+    .info-box-heading{
+        padding: 0.75em 1.5em;
+        background-color: #fff;
+        margin-bottom: 0.25em;
+    }
+
+    .info-box-content{
+        padding: 1.5em;
+
+        background-color: #fff;
+    }
+}
 
 /* #####
     3. Specific Page elements
@@ -175,4 +261,13 @@ h2{
         height: 97vh;
     }
 
+}
+
+/* #####
+    3.b About me
+*/
+#about{
+    padding: 3em 0;
+
+    background-color: @lightColor;
 }
