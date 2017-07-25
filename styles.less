@@ -71,6 +71,13 @@ table {
 	-o-transform: 		 skew(@deg, @deg2);
 }
 
+.rotate (@deg) {
+	-webkit-transform: rotate(@deg);
+	-moz-transform: 	 rotate(@deg);
+	-ms-transform: 		 rotate(@deg);
+	-o-transform: 		 rotate(@deg);
+}
+
 
 /* #####
     1. General Settings
@@ -137,6 +144,10 @@ h3{
 .col{
     margin-bottom: 2em;
 }
+
+.clear{
+		clear: both;
+}
 /* ######
     2.d Headings
 */
@@ -192,11 +203,28 @@ article{
 .info-box-container{
     
     .info-box-heading{
-        padding: 0.75em 1.5em;
+      height: 75px;
+			
+			h3{
+				display: block;
+				float: left;
+				box-sizing: border-box;
+				width: 80%;
+				
         background-color: #fff;
-        margin-bottom: 0.25em;
+			}
     }
-
+	
+		.info-box-heading-icon-container{
+				width: 20%;
+				display: block;
+				float: left;
+				font-size: 2.5em;
+				.rotate(90deg);
+			
+				background-color: #fff;
+		}
+	
     .info-box-content{
         padding: 1.5em;
 
