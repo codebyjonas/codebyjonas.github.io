@@ -60,8 +60,14 @@ table {
     2.d Headings
     2.e Article
     2.f Info box
+		2.g Section
+		2.h Form
     3. Specific Page elements
     3.a Main Content
+		3.b About me
+		3.c References
+		4. Content specific
+		4.a References 
 */
 
 .skew (@deg, @deg2) {
@@ -104,6 +110,15 @@ h3{
     font-family: 'Zilla slab', serif;
 }
 
+.primary-color{
+		color: @primaryColor;
+}
+
+a{
+		color: @darkColor;
+		text-decoration: none;
+}
+
 /* ######
     1.b Color vars
 */
@@ -129,13 +144,20 @@ h3{
 
 .bg-parallellogram{
     width: 100vw;
-    height: 100vh;
+    height: auto;
     .skew(45deg, 0);
+		position: absolute;
+		top: 0;
+		bottom: 0;
 }
 
 /* ######
     2.c Grid
 */
+
+main{
+	overflow: hidden;
+}
 
 .grid-container{
     margin: 0 1rem;
@@ -201,36 +223,117 @@ article{
 */
 
 .info-box-container{
+		margin-bottom: 1em;
     
     .info-box-heading{
       height: 75px;
+			position: relative;
+			
+			background-color: #fff;
+			border-bottom: solid .3em @lightColorShade;
 			
 			h3{
 				display: block;
 				float: left;
 				box-sizing: border-box;
 				width: 80%;
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				margin-left: 1em;
 				
-        background-color: #fff;
 			}
     }
 	
-		.info-box-heading-icon-container{
-				width: 20%;
-				display: block;
-				float: left;
+		.info-box-heading-icon{
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%) rotate(90deg);
+				right: 1.75rem;
 				font-size: 2.5em;
-				.rotate(90deg);
-			
-				background-color: #fff;
 		}
 	
     .info-box-content{
         padding: 1.5em;
-
+				display: none;	
+			
         background-color: #fff;
     }
+	
+		
+		&.open{
+			
+			.info-box-heading{
+						margin-bottom: 0.3em;
+				
+					background-color: @primaryColor;
+					color: #fff;
+					border-bottom: none;
+			}
+			.info-box-heading-icon{
+					transform: translateY(-50%);
+			}
+			.info-box-content{
+					display: block;
+			}
+	}
+	
+		&:last-child{
+			margin-bottom: 0;
+		}
 }
+.box {
+    float: left;
+    width: 50%;
+}
+
+.box:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+
+.reference-box-container{
+	
+	.reference-box-hero{
+		content: "";
+		display: block;
+		padding-top: 100%;
+		
+		background-size: 100% 100%;
+		background-position: center center;
+		border-bottom: solid .3rem @lightColorShade;
+	}
+	.reference-box-heading{
+		padding: .75em;
+		margin-top: 0.3em;
+		
+		background-color: #fff;
+		border-bottom: solid .3rem @lightColorShade;
+	}
+}
+
+/* #####
+	2.g Page Section
+*/
+
+.page-section{
+	 padding: 3em 0;
+}
+
+/* #####
+	2.h Form
+*/
+
+input{
+	width: 100%;
+	padding: .5em;
+	
+	border: 0;
+	border-bottom: solid .3rem @primaryColor;
+}
+
 
 /* #####
     3. Specific Page elements
@@ -284,9 +387,7 @@ article{
 
     .bg-parallellogram{
         background-color: @primaryColorShade;
-        position: relative;
         z-index: 1;
-        height: 97vh;
     }
 
 }
@@ -295,7 +396,57 @@ article{
     3.b About me
 */
 #about{
-    padding: 3em 0;
-
     background-color: @lightColor;
+}
+
+/* #####
+		3.c References
+*/
+#references{
+		position: relative;
+		box-sizing: border-box;	
+	
+		background-color: @secondaryColor;	
+	
+	.section-heading{
+		color: #fff;
+	}
+	
+	.grid-container{
+		position: relative;
+		z-index: 2;
+	}
+	
+	.bg-parallellogram{
+		z-index: 1;
+		
+		background-color: @secondaryColorShade;
+	}
+}
+
+#contact{
+	background-color: @lightColor;
+}
+
+/* #####
+	4. Content specific
+	4.a References
+*/
+
+#reference-1{
+	.reference-box-hero{
+		background-image: url("http://lorempixel.com/800/800/");
+	}
+}
+
+#reference-2{
+	.reference-box-hero{
+		background-image: url("http://lorempixel.com/800/800/");
+	}
+}
+
+#reference-3{
+	.reference-box-hero{
+		background-image: url("http://lorempixel.com/800/800/");
+	}
 }
