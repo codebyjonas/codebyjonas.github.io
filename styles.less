@@ -63,10 +63,11 @@ table {
 		2.g Section
 		2.h Form
     3. Specific Page elements
-    3.a Main Content
+    	3.a Main Content
 		3.b About me
 		3.c References
-		4. Content specific
+		3.d Contact information
+	4. Content specific
 		4.a References 
 */
 
@@ -82,6 +83,13 @@ table {
 	-moz-transform: 	 rotate(@deg);
 	-ms-transform: 		 rotate(@deg);
 	-o-transform: 		 rotate(@deg);
+}
+
+.transition (@transition) {
+	-webkit-transition: @transition;  
+	-moz-transition:    @transition;
+	-ms-transition:     @transition; 
+	-o-transition:      @transition;  
 }
 
 
@@ -116,7 +124,14 @@ h3{
 
 a{
 		color: @darkColor;
+		border: 1px solid transparent;
+		box-sizing: border-box;
 		text-decoration: none;
+		.transition(border 500ms);
+
+		&:hover{
+			border-bottom-color: @primaryColor;
+		}
 }
 
 /* ######
@@ -146,9 +161,9 @@ a{
     width: 100vw;
     height: auto;
     .skew(45deg, 0);
-		position: absolute;
-		top: 0;
-		bottom: 0;
+	position: absolute;
+	top: 0;
+	bottom: 0;
 }
 
 /* ######
@@ -326,12 +341,21 @@ article{
 	2.h Form
 */
 
-input{
+input, textarea{
 	width: 100%;
-	padding: .5em;
-	
+	padding: 1em;
+	box-sizing: border-box;
+	margin-bottom: 1em;
+
+	font-size: 1em;
 	border: 0;
 	border-bottom: solid .3rem @primaryColor;
+}
+
+input[type="submit"]{
+	background-color: @primaryColor;
+	color: @lightColor;
+	border-color: @primaryColorShade;
 }
 
 
@@ -426,6 +450,24 @@ input{
 
 #contact{
 	background-color: @lightColor;
+}
+
+/* #####
+		3.d Contact 
+*/
+
+#contact{
+
+	#contact-information{
+		i{
+			font-size: 1.5em;
+			color: @primaryColor;
+			margin-right: 1em;
+			line-height: 2em;
+		}
+
+
+	}
 }
 
 /* #####
