@@ -51,15 +51,15 @@ table {
     ##### Table Of Contence #####
     0. Mixins 
     1. General Settings 
-    1.a Fonts & Headings
-    1.b Color vars
+    	1.a Fonts & Headings
+    	1.b Color vars
     2. Page elements 
-    2.a Navigation
-    2.b Background shapes
-    2.c Grid
-    2.d Headings
-    2.e Article
-    2.f Info box
+		2.a Navigation
+		2.b Background shapes
+		2.c Grid
+		2.d Headings
+		2.e Article
+		2.f Info box
 		2.g Section
 		2.h Form
 		2.i Aside
@@ -156,6 +156,60 @@ a{
     2. Page elements
 */
 
+/* #####
+	2.a Navigation
+*/
+nav{
+	width: 80%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	padding: 3em;
+	box-sizing: border-box;
+
+	
+	background-color: @darkColor;
+	color: @lightColor;
+	border-right: solid 1em @lightColor;
+
+	h2{
+		text-align: center;
+		margin-bottom: 1em;
+		border-bottom: .3rem solid @lightColor;
+	}
+
+	li{
+		display: block;
+		padding: .75em 0;
+		
+		color: @lightColor;
+		
+		a{
+			padding-left: 1.5em;
+			color: @lightColor;
+			border: none;
+			
+			&:hover{
+				
+			}
+		}
+
+		i{
+			.transition(all 500ms);
+			left: 0;
+		}
+
+		&:hover{
+			i{
+				position: relative;
+				left: 1em;
+			}
+		}
+	}
+}
+
 /* ##### 
     2.b Background shapes
 */
@@ -178,7 +232,7 @@ main{
 }
 
 .grid-container{
-    margin: 0 1rem;
+	margin: 0 1rem;
 }
 
 .col{
@@ -444,18 +498,20 @@ aside{
 */
 
 .btn{
+	
 	font-family: 'Zilla Slab', serif;
 	
 	display: inline-block;
 	padding: 0.75em 2em;
+	border: 0;
 	border-bottom: solid 0.3rem transparent;
-	
-	.transition(none);
 
-	
+	.transition(all 500ms);
+
 	&:hover{
-		border-bottom-color: transparent !important;
+		border-bottom: none;
 	}
+
 	
 }
 
@@ -612,7 +668,7 @@ aside{
 }
 
 /* #####
-	Media Screen iPhone+
+	Media Screen iPad+
 */
 
 @media screen and (min-width: 42.66666667em) {
@@ -655,6 +711,14 @@ aside{
 	}
 	
 	/* #####
+	2.j Buttons
+	*/
+	.btn{
+		font-size: 1.5em;
+	}
+
+
+	/* #####
     3. Specific Page elements
     3.a Main Content
 	*/
@@ -667,6 +731,10 @@ aside{
 			.tag-line{
 				font-size: 3.5em;
 			}
+
+			.btn{
+				margin-top: 3em;
+			}
 		}
 	}
 	
@@ -674,7 +742,7 @@ aside{
 }
 
 /* #####
-	Media Screen iPad+
+	Media Screen Laptop+
 */
 
 @media screen and (min-width: 56.8888887em) {
@@ -722,7 +790,14 @@ aside{
 	}
 
 }
-	
+
+@media screen and (min-width: 88.8888889em) {
+
+	.grid-container{
+		max-width: 1600px;
+		margin: 0 auto;
+	}
+}
 
 /* #####
 	4. Content specific
