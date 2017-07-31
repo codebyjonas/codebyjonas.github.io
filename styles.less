@@ -266,6 +266,9 @@ main{
 
 .grid-container{
 	margin: 0 1rem;
+	position: relative;
+
+	.transition(all 1s);
 }
 
 .col{
@@ -602,10 +605,10 @@ aside{
     position: relative;
 
     .text-container{
-        position: absolute;
+        position: fixed;
         top: 50%;
-				left: 50%;
-        transform: translateY(-50%) translateX(-50%);
+		left: 50%;
+        transform: translateY(-25%) translateX(-50%);
         z-index: 2;
 			
 				max-width: 1024px;
@@ -621,7 +624,7 @@ aside{
             padding: .75em;
             margin: 2em auto 0 auto;
             width: 70%;
-						min-width: 260px;
+			min-width: 260px;
             position: relative;
 
             &:before{
@@ -639,7 +642,7 @@ aside{
 				
 			.tag-line-slider-container{
 					overflow: hidden;
-					height: 70px;
+					height: 38px;
 				
 				.tag-line-slider-object{
 					display: none;
@@ -699,6 +702,8 @@ aside{
 		
 		background-color: @secondaryColorShade;
 	}
+
+	
 }
 
 #contact{
@@ -764,6 +769,8 @@ aside{
 
 	.page-section{
 		 padding: 5em 0;
+		  position: relative;
+		z-index: 5;
 	}
 	
 	/* #####
@@ -784,11 +791,19 @@ aside{
 				font-size: 1.5em;
 				margin-top: 3em;
 			}
+
+			.tag-line-slider-container{
+				height: 70px;
+			
+				.tag-line-slider-object{
+					font-size: 3.5em;
+
+				}
+			}
 		}
 		
-		.tag-line-slider-object{
-			font-size: 3.5em;
-		}
+		
+		
 	}
 	
 	

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
 
     /* #####
       Smooth Scroll
@@ -76,6 +76,44 @@ $(document).ready(function () {
 
     tagLineSlider();
 
+    /* #####
+        Start Stellar
+    */
+    $(window).stellar({
+        horizontalScrolling: false,
+        verticalOffset: 0,
+        horizontalOffset: 0,
+
+    });
+
+    /* #####
+        Waypoints
+    */
+
+    $(".grid-container").css({ "opacity": "0" });
+
+    $("#about").waypoint(function (direction) {
+        $("#about .grid-container").css({ "opacity": "1" });
+    }, {
+            offset: '75%'
+        })
+
+    $("#references").waypoint(function (direction) {
+        $("#references .grid-container").css({ "opacity": "1" });
+    }, {
+            offset: '75%'
+        })
+
+    $("#contact").waypoint(function (direction) {
+        $("#contact .grid-container").css({ "opacity": "1" });
+    }, {
+            offset: '75%'
+        })
+
+    
+
 
 
 });
+
+
