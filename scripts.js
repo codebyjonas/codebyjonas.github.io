@@ -1,27 +1,68 @@
 $(document).ready(function () {
-    console.log("ready!");
+    
+  /* #####
+    Smooth Scroll
+  */
+  $("a").on('click', function (event) {
+      if (this.hash !== "") {
+          
+          $("nav").removeClass("open");
+        
+          event.preventDefault();
+          var hash = this.hash;
 
+          $('html, body').animate({
+              scrollTop: $(hash).offset().top 
+          }, 800, function () {
+              window.location.hash = hash;
+          });
+      } 
+  });
 
-    $("a").on('click', function (event) {
+  
+  
+  /* #####
+    Menu
+  */
+  
+  nav = $("nav");
+  
+  // Open menu
+  $(".menu-toggle").on('click', function (event){
+      nav.addClass("open");
+  });
+  
+  // Close menu
+  $("main").on('click', function (event){
+      nav.removeClass("open");
+  });
+  
+  /* #####
+    Info Container
+  */
+  allInfoContainers = $(".info-box-container");
+  
+  allInfoContainers.on('click', function(event){
+     allInfoContainers.removeClass("open");
+     $(this).addClass("open");
+  });
+  
+  /* #####
+    Tag-line-slider
+  */
+  $(".tag-line").hide();
+  
+  $(".tag-line-slider-object").each(function(index,element) {
+    console.log(index);
+    
 
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-            // Prevent default anchor click behavior
-            event.preventDefault();
-
-            // Store hash
-            var hash = this.hash;
-
-            // Using jQuery's animate() method to add smooth page scroll
-            // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 800, function () {
-
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-            });
-        } // End if
-    });
+      $(".tag-line-slider-object").hide('slide',{direction:'left'},1000).delay(500);
+     
+      $(this).show('slide', {direction: 'right'}, 1000).delay(3000);
+    
+  });
+  
+  
+    
 
 });

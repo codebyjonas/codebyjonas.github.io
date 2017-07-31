@@ -159,24 +159,57 @@ a{
 /* #####
 	2.a Navigation
 */
-nav{
-	width: 80%;
-	height: 100vh;
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 99;
-	padding: 3em;
-	box-sizing: border-box;
 
+.menu-toggle.fa{
+	position: fixed;
+	display: block;
+	font-size: 2.5em;
+	padding: .5rem .75rem;
+	box-sizing: border-box;
+	
+	top: 1em;
+	left: 1em;
+	z-index: 99;
 	
 	background-color: @darkColor;
 	color: @lightColor;
-	border-right: solid 1em @lightColor;
+	cursor: pointer;
+	border: solid .2rem @darkColor;
+	
+	.transition(all 500ms);
+	
+	&:hover{
+		background-color: transparent;
+		color: @darkColor;
+	}
+}
+
+nav{
+	width: 80%;
+	max-width: 400px;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: -100%;
+	z-index: 99;
+	padding: 3em;
+	box-sizing: border-box;
+	
+	background-color: @darkColor;
+	color: @lightColor;
+	border-right: solid 1em #fff;
+	
+	.transition(all 500ms);
+	
+	&.open{
+		left: 0;
+	}
 
 	h2{
 		text-align: center;
 		margin-bottom: 1em;
+		padding-bottom: .5rem;
+		
 		border-bottom: .3rem solid @lightColor;
 	}
 
@@ -299,7 +332,9 @@ article{
 
 .info-box-container{
 		margin-bottom: 1em;
-    
+		display: block;
+
+	
     .info-box-heading{
       height: 75px;
 			position: relative;
@@ -340,6 +375,8 @@ article{
 				display: none;	
 			
         background-color: #fff;
+			
+			.transition(all 1s);
     }
 	
 		
@@ -503,13 +540,18 @@ aside{
 	
 	display: inline-block;
 	padding: 0.75em 2em;
-	border: 0;
+	border: 1px solid transparent;
 	border-bottom: solid 0.3rem transparent;
 
 	.transition(all 500ms);
 
 	&:hover{
 		border-bottom: none;
+	}
+	
+	&:active{
+		border: 1px solid black;
+		outline: none;
 	}
 
 	
@@ -581,9 +623,7 @@ aside{
             width: 70%;
 						min-width: 260px;
             position: relative;
-            .tag-line{
 
-            }
             &:before{
                 content: "";
                 display: block;
@@ -596,6 +636,24 @@ aside{
                 border-bottom: solid .2em @lightColorShade;
             }
         }
+				
+			.tag-line-slider-container{
+					overflow: hidden;
+					position: relative;
+					height: 63px;
+				
+				.tag-line-slider-object{
+						position: absolute;
+						left: -100%;
+					
+					.transition(all 500ms);
+					
+						&.visible{
+							left: 0;
+						}
+				}
+			}
+			
     }
 
 	.btn{
@@ -618,6 +676,12 @@ aside{
 */
 #about{
     background-color: @lightColor;
+	
+	.btn{
+		color: @lightColor;
+		background-color: @primaryColor;
+		border-bottom-color: @primaryColorShade;
+	}
 }
 
 /* #####
@@ -711,14 +775,6 @@ aside{
 	}
 	
 	/* #####
-	2.j Buttons
-	*/
-	.btn{
-		font-size: 1.5em;
-	}
-
-
-	/* #####
     3. Specific Page elements
     3.a Main Content
 	*/
@@ -733,8 +789,13 @@ aside{
 			}
 
 			.btn{
+				font-size: 1.5em;
 				margin-top: 3em;
 			}
+		}
+		
+		.tag-line-slider-object{
+			font-size: 3.5em;
 		}
 	}
 	
