@@ -62,15 +62,13 @@ $(document).ready(function () {
 
         setInterval(function () {
 
-            console.log(curr);
+            $(".tag-line-slider-object").hide("slide", { direction: "left" }, duration);
 
-            $(".tag-line-slider-object").hide("slide", { direction: "left"}, duration);
+            $(".tag-line-slider-object:nth-child(" + curr + ")").delay(750).show("slide", { direction: "left" }, duration);
 
-            $(".tag-line-slider-object:nth-child("+curr+")").delay(750).show("slide", { direction: "left" }, duration);
-            
             curr++;
-            
-            if(curr == count + 1){
+
+            if (curr == count + 1) {
                 curr = 1;
             }
         }, 3000);
