@@ -107,18 +107,18 @@ body{
 }
 
 h1{
-    font-family: 'Zilla slab', serif;
+   font-family: 'Francois One', sans-serif;
     font-size: 4em;
 }
 
 h2{
-    font-family: 'Zilla slab', serif;
+   	font-family: 'Francois One', sans-serif;
     font-size: 2em;
 }
 
 h3{
     font-size: 1.5em;
-    font-family: 'Zilla slab', serif;
+		font-family: 'Francois One', sans-serif;
 }
 
 .primary-color{
@@ -295,7 +295,7 @@ main{
         position: relative;
 
         color: @primaryColor;
-        border-bottom: solid .4rem #fff;
+ 
         
         &:before{
                 content: "";
@@ -343,12 +343,12 @@ article{
 			position: relative;
 			
 			background-color: #fff;
-			border-bottom: solid .3em @lightColorShade;
 			
 			overflow: hidden;
 			
 			cursor: pointer;
 			
+			border-bottom: 0.3rem solid @primaryColor;
 		
 			h3{
 				display: block;
@@ -434,7 +434,6 @@ article{
 		
 		background-size: 100% 100%;
 		background-position: center center;
-		border-bottom: solid .3rem @lightColorShade;
 		
 		.transition(background 1s);
 		
@@ -447,7 +446,6 @@ article{
 		margin-top: 0.3em;
 		
 		background-color: #fff;
-		border-bottom: solid .3rem @lightColorShade;
 	}
 }
 
@@ -520,6 +518,13 @@ input[type="submit"]{
 	background-color: @primaryColor;
 	color: @lightColor;
 	border-color: @primaryColorShade;
+	
+	.transition(all 500ms);
+	
+	&:hover{
+		background-color: @primaryColorShade;
+	}
+	
 }
 
 /* #####
@@ -538,22 +543,16 @@ aside{
 */
 
 .btn{
-	
-	font-family: 'Zilla Slab', serif;
+	font-family: 'Francois One', sans-serif;
 	
 	display: inline-block;
 	padding: 0.75em 2em;
-	border: 1px solid transparent;
-	border-bottom: solid 0.3rem transparent;
+	border: 2px solid transparent;
 
 	.transition(all 500ms);
-
-	&:hover{
-		border-bottom: none;
-	}
 	
 	&:active{
-		border: 1px solid black;
+		border: 2px solid black;
 		outline: none;
 	}
 
@@ -613,9 +612,7 @@ aside{
 			
 				max-width: 1024px;
     
-        .hero-text{
-            text-shadow: 0 .05em 0 @lightColorShade;
-        }
+       
 
         .tag-line-container{
             border-top: solid .4em @lightColor;
@@ -624,20 +621,8 @@ aside{
             padding: .75em;
             margin: 2em auto 0 auto;
             width: 70%;
-			min-width: 260px;
+						min-width: 260px;
             position: relative;
-
-            &:before{
-                content: "";
-                display: block;
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                left: 0px;
-                bottom: -.6em;
-                border-top: solid .2em @lightColorShade;
-                border-bottom: solid .2em @lightColorShade;
-            }
         }
 				
 			.tag-line-slider-container{
@@ -655,8 +640,11 @@ aside{
 		margin-top: 2em;
 		
 		background-color: @lightColor;
-		border-bottom-color: @lightColorShade;
 		color: @primaryColor;
+		
+		&:hover{
+			background-color: @lightColorShade;
+		}
 	}
 	
     .bg-parallellogram{
@@ -675,7 +663,11 @@ aside{
 	.btn{
 		color: @lightColor;
 		background-color: @primaryColor;
-		border-bottom-color: @primaryColorShade;
+			border-color: @primaryColorShade;
+		
+		&:hover{
+			background-color: @primaryColorShade;
+		}
 	}
 }
 
