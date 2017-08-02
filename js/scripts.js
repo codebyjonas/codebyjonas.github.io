@@ -110,9 +110,20 @@ $(function () {
             offset: '75%'
         })
 
-    
+    /* #####
+        Fade In Content
+    */
+    $(".text-container").hide();
+});
 
+$(window).load(function () {
 
+    /* #####
+        Fade In Content
+    */
+    setInterval(function () {
+        $(".text-container").fadeIn();
+    }, 500);
 
 });
 
