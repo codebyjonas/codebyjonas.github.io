@@ -541,9 +541,29 @@ textarea{
 			left: 0;	
 		}
 	}
+	
+	.fa{
+		position: absolute;
+    font-size: 2em;
+    top: 50%;
+    transform: translateY(-80%);
+    right: .5em;
+		color: #fff;
+		
+		.transition(color 500ms);
+	}
+	
+	&.input-valid .fa-check{
+		color: @secondaryColor;
+		z-index:99;
+	}
+	
+	&.input-non-valid .fa-times{
+		color: red;
+	}
 }
 
-input[type="submit"]{
+#submitForm{
 	background-color: @primaryColor;
 	color: @lightColor;
 	border-color: @primaryColorShade;
@@ -552,6 +572,12 @@ input[type="submit"]{
 	
 	&:hover{
 		background-color: @primaryColorShade;
+	}
+	
+	&.disable{
+		border-color: @lightColorShade;
+		background-color: @lightColorShade;
+		
 	}
 	
 }
