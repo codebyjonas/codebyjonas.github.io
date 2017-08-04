@@ -1,0 +1,840 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/*
+    ##### Table Of Contence #####
+    0. Mixins 
+    1. General Settings 
+    	1.a Fonts & Headings
+    	1.b Color vars
+    2. Page elements 
+		2.a Navigation
+		2.b Background shapes
+		2.c Grid
+		2.d Headings
+		2.e Article
+		2.f Info box
+		2.g Section
+		2.h Form
+		2.i Aside
+		2.j Buttons
+		2.k Effects
+		2.l Alerts
+	3. Specific Page elements
+		3.a Main Content
+		3.b About me
+		3.c References
+		3.d Contact information
+		3.e Footer
+	4. Content specific
+		4.a References 
+*/
+/* #####
+    1. General Settings
+    1.a Fonts & Headings
+*/
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+}
+h1 {
+  font-family: 'Francois One', sans-serif;
+  font-size: 4em;
+}
+h2 {
+  font-family: 'Francois One', sans-serif;
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.5em;
+  font-family: 'Francois One', sans-serif;
+}
+b {
+  font-weight: bold;
+}
+.primary-color {
+  color: #3498db;
+}
+a {
+  color: #2c3e50;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  text-decoration: none;
+  -webkit-transition: border 500ms;
+  -moz-transition: border 500ms;
+  -ms-transition: border 500ms;
+  -o-transition: border 500ms;
+}
+a:hover {
+  border-bottom-color: #3498db;
+}
+ul {
+  list-style-type: disc;
+  margin-left: 1.5em;
+}
+ul li {
+  margin-bottom: .5em;
+}
+/* ######
+    1.b Color vars
+*/
+/* #####
+    2. Page elements
+*/
+/* #####
+	2.a Navigation
+*/
+.menu-toggle.fa {
+  position: fixed;
+  display: block;
+  font-size: 2.5em;
+  padding: .5rem .75rem;
+  box-sizing: border-box;
+  top: 1em;
+  left: 1em;
+  z-index: 99;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  cursor: pointer;
+  border: solid 0.2rem #2c3e50;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+.menu-toggle.fa:hover {
+  background-color: transparent;
+  color: #2c3e50;
+}
+nav {
+  width: 80%;
+  max-width: 400px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 99;
+  padding: 3em;
+  box-sizing: border-box;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border-right: solid 1em #fff;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+nav.open {
+  left: 0;
+}
+nav h2 {
+  text-align: center;
+  margin-bottom: 1em;
+  padding-bottom: .5rem;
+  border-bottom: 0.3rem solid #ecf0f1;
+}
+nav li {
+  display: block;
+  padding: .75em 0;
+  color: #ecf0f1;
+}
+nav li a {
+  padding-left: 1.5em;
+  color: #ecf0f1;
+  border: none;
+}
+nav li i {
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  left: 0;
+}
+nav li:hover i {
+  position: relative;
+  left: 1em;
+}
+/* ##### 
+    2.b Background shapes
+*/
+.bg-parallellogram {
+  width: 100vw;
+  height: auto;
+  -webkit-transform: skew(45deg, 0);
+  -moz-transform: skew(45deg, 0);
+  -ms-transform: skew(45deg, 0);
+  -o-transform: skew(45deg, 0);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+/* ######
+    2.c Grid
+*/
+main {
+  overflow: hidden;
+}
+.grid-container {
+  margin: 0 1rem;
+  position: relative;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+.col {
+  margin-bottom: 2em;
+}
+.col.last {
+  margin-right: 0;
+}
+.clear {
+  clear: both;
+}
+/* ######
+    2.d Headings
+*/
+.section-heading-container {
+  text-align: center;
+  margin-bottom: 3em;
+}
+.section-heading-container .section-heading {
+  display: inline;
+  position: relative;
+  color: #3498db;
+}
+.section-heading-container .section-heading:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: -0.6rem;
+  border-bottom: solid 0.2rem #bdc3c7;
+}
+/* ######
+    2.e Article
+*/
+article {
+  color: #2c3e50;
+}
+article h3 {
+  margin-bottom: .25em;
+}
+article p {
+  line-height: 1.5em;
+  margin-bottom: 1em;
+  text-align: justify;
+}
+/* #####
+    2.f Info boxes
+*/
+.info-box-container {
+  margin-bottom: 1em;
+  display: block;
+}
+.info-box-container .info-box-heading {
+  height: 75px;
+  position: relative;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  border-bottom: 0.3rem solid #3498db;
+}
+.info-box-container .info-box-heading h3 {
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 1em;
+  z-index: 5;
+}
+.info-box-container .info-box-heading-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  right: 1.75rem;
+  font-size: 2.5em;
+  z-index: 5;
+}
+.info-box-container .info-box-content {
+  padding: 1.5em;
+  display: none;
+  background-color: #fff;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+.info-box-container.open .info-box-heading {
+  margin-bottom: 0.3em;
+  background-color: #3498db;
+  color: #fff;
+  border-bottom: none;
+}
+.info-box-container.open .info-box-heading h3 {
+  color: #ecf0f1;
+}
+.info-box-container.open .info-box-heading:after {
+  background: #3087c2;
+}
+.info-box-container.open .info-box-heading-icon {
+  transform: translateY(-50%);
+}
+.info-box-container.open .info-box-content {
+  display: block;
+}
+.info-box-container:last-child {
+  margin-bottom: 0;
+}
+.box {
+  float: left;
+  width: 50%;
+}
+.box:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.reference-box-container .reference-box-hero {
+  position: relative;
+  content: "";
+  display: block;
+  padding-top: 100%;
+  background-size: 100% 100%;
+  background-position: center center;
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -ms-transition: background 1s;
+  -o-transition: background 1s;
+}
+.reference-box-container .reference-box-hero:hover {
+  background-size: 150% 150%;
+}
+.reference-box-container .reference-box-hero:hover .icon-container {
+  opacity: 0.8;
+}
+.reference-box-container .reference-box-hero .icon-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1abc9c;
+  opacity: 0;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+}
+.reference-box-container .reference-box-hero .icon-container .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-25%) translateX(-50%);
+  font-size: 3em;
+  color: #fff;
+}
+.reference-box-container .reference-box-heading {
+  padding: .75em;
+  margin-top: 0.3em;
+  background-color: #fff;
+}
+/* #####
+	2.g Page Section
+*/
+.page-section {
+  padding: 3em 0;
+  z-index: 5;
+  position: relative;
+}
+/* #####
+	2.h Form
+*/
+fieldset h3 {
+  margin-bottom: .25em;
+  color: #2c3e50;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 1em;
+  box-sizing: border-box;
+  margin-bottom: 1em;
+  font-size: 1em;
+  border: 0;
+  border-bottom: solid 0.1rem #3498db;
+  outline: 0;
+  -webkit-appearance: none;
+  border-radius: 0;
+  cursor: pointer;
+}
+textarea {
+  height: 20em;
+}
+.input-container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+.input-container:after {
+  content: "";
+  position: absolute;
+  bottom: 1em;
+  left: -100%;
+  width: 100%;
+  height: 0.3rem;
+  z-index: 3;
+  background-color: #1abc9c;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+.input-container:hover:after {
+  left: 0;
+}
+.input-container .fa {
+  position: absolute;
+  font-size: 2em;
+  top: 50%;
+  transform: translateY(-80%);
+  right: .5em;
+  color: #fff;
+  -webkit-transition: color 500ms;
+  -moz-transition: color 500ms;
+  -ms-transition: color 500ms;
+  -o-transition: color 500ms;
+}
+.input-container.input-valid .fa-check {
+  color: #1abc9c;
+  z-index: 99;
+}
+.input-container.input-non-valid .fa-times {
+  color: red;
+}
+#submitForm {
+  background-color: #3498db;
+  color: #ecf0f1;
+  border-color: #3087c2;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+#submitForm:hover {
+  background-color: #3087c2;
+}
+#submitForm.disable {
+  border-color: #bdc3c7;
+  background-color: #bdc3c7;
+}
+#submitForm.sent {
+  background-color: #1abc9c;
+  border-color: #16a085;
+}
+/* #####
+	2.i Aside
+*/
+aside h3 {
+  margin-bottom: .25em;
+  color: #2c3e50;
+}
+/* #####
+	2.j Buttons
+*/
+.btn {
+  font-family: 'Francois One', sans-serif;
+  display: inline-block;
+  padding: 0.75em 2em;
+  border: 2px solid transparent;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+}
+.btn:active {
+  border: 2px solid black;
+  outline: none;
+}
+/* #####
+	2.k Effects
+*/
+.slide-from-left {
+  position: relative;
+  overflow: hidden;
+}
+.slide-from-left * {
+  position: relative;
+  z-index: 5;
+}
+.slide-from-left:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  background-color: #ecf0f1;
+}
+.slide-from-left:hover:after {
+  left: 0;
+}
+/* #####
+	2.l Alerts
+*/
+.error-msg {
+  display: none;
+  width: 100%;
+  padding: .5rem 0;
+  margin-bottom: 1em;
+  text-align: center;
+  background-color: #e74c3c;
+  border: .3rem solid #c0392b;
+  color: #fff;
+  font-family: 'Francois One', sans-serif;
+}
+/* #####
+    3. Specific Page elements
+    3.a Main Content
+*/
+#main-content {
+  background-color: #3498db;
+  color: #ecf0f1;
+  border-bottom: solid 1em #bdc3c7;
+  height: 100vh;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative;
+}
+#main-content .text-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-25%) translateX(-50%);
+  z-index: 2;
+  max-width: 1024px;
+}
+#main-content .text-container .tag-line-container {
+  border-top: solid 0.4em #ecf0f1;
+  border-bottom: solid 0.4em #ecf0f1;
+  padding: .75em;
+  margin: 2em auto 0 auto;
+  width: 70%;
+  min-width: 260px;
+  position: relative;
+}
+#main-content .text-container .tag-line-slider-container {
+  overflow: hidden;
+  height: 38px;
+}
+#main-content .text-container .tag-line-slider-container .tag-line-slider-object {
+  display: none;
+}
+#main-content .btn {
+  margin-top: 2em;
+  background-color: #ecf0f1;
+  color: #3498db;
+}
+#main-content .btn:hover {
+  background-color: #bdc3c7;
+}
+#main-content .bg-parallellogram {
+  background-color: #3087c2;
+  z-index: 1;
+}
+/* #####
+    3.b About me
+*/
+#about {
+  background-color: #ecf0f1;
+}
+#about .btn {
+  color: #ecf0f1;
+  background-color: #3498db;
+  border-color: #3087c2;
+}
+#about .btn:hover {
+  background-color: #3087c2;
+}
+/* #####
+		3.c References
+*/
+#references {
+  position: relative;
+  box-sizing: border-box;
+  background-color: #1abc9c;
+}
+#references .section-heading {
+  color: #fff;
+}
+#references .grid-container {
+  position: relative;
+  z-index: 2;
+}
+#references .bg-parallellogram {
+  z-index: 1;
+  background-color: #16a085;
+}
+#contact {
+  background-color: #ecf0f1;
+}
+/* #####
+		3.d Contact 
+*/
+#contact #contact-information i {
+  font-size: 1.5em;
+  color: #3498db;
+  margin-right: 1em;
+  line-height: 2em;
+}
+/* #####
+		3.e Footer 
+*/
+footer {
+  background-color: #2c3e50;
+  color: #bdc3c7;
+}
+footer p {
+  padding: 2em;
+  font-size: 0.75em;
+  text-align: center;
+}
+/* #####
+	Media Screen iPad+
+*/
+@media screen and (min-width: 42.66666667em) {
+  /* #####
+    1. General Settings
+    1.a Fonts & Headings
+	*/
+  h1 {
+    font-size: 8em;
+  }
+  /* ######
+			2.c Grid
+	*/
+  .grid-container {
+    margin: 0 3.5%;
+  }
+  .grid-33 {
+    width: 31%;
+    margin-right: 3.5%;
+  }
+  .col {
+    float: left;
+  }
+  /* #####
+	2.g Page Section
+	*/
+  .page-section {
+    padding: 5em 0;
+    position: relative;
+  }
+  /* #####
+    3. Specific Page elements
+    3.a Main Content
+	*/
+  #main-content .text-container {
+    width: 85%;
+  }
+  #main-content .text-container .tag-line {
+    font-size: 3.5em;
+  }
+  #main-content .text-container .btn {
+    font-size: 1.5em;
+    margin-top: 3em;
+  }
+  #main-content .text-container .tag-line-slider-container {
+    height: 70px;
+  }
+  #main-content .text-container .tag-line-slider-container .tag-line-slider-object {
+    font-size: 3.5em;
+  }
+}
+/* #####
+	Media Screen Laptop+
+*/
+@media screen and (min-width: 56.8888887em) {
+  /* ######
+			2.c Grid
+	*/
+  .grid-container {
+    margin: 0 4%;
+  }
+  .grid-50 {
+    width: 46%;
+    margin-right: 8%;
+  }
+  /* ######
+    2.e Article
+*/
+  article h3 {
+    margin-bottom: 1em;
+  }
+  /* #####
+	2.h Form
+	*/
+  fieldset h3 {
+    margin-bottom: 1em;
+  }
+  /* #####
+	2.i Aside
+	*/
+  aside h3 {
+    margin-bottom: 1em;
+  }
+}
+@media screen and (min-width: 88.8888889em) {
+  .grid-container {
+    max-width: 1600px;
+    margin: 0 auto;
+  }
+}
+/* #####
+	4. Content specific
+	4.a References
+*/
+#reference-1 .reference-box-hero {
+  background-image: url("img/gymnasiecaset-reference.jpg");
+}
+#reference-2 .reference-box-hero {
+  background-image: url("img/summerinthepark-reference.jpg");
+}
+#reference-3 .reference-box-hero {
+  background-image: url("img/karrasand-reference.jpg");
+}
