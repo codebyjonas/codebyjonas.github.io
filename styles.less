@@ -65,6 +65,7 @@ table {
 		2.i Aside
 		2.j Buttons
 		2.k Effects
+		2.l Alerts
 	3. Specific Page elements
 		3.a Main Content
 		3.b About me
@@ -121,6 +122,10 @@ h3{
 		font-family: 'Francois One', sans-serif;
 }
 
+b{
+		font-weight: bold;
+}
+
 .primary-color{
 		color: @primaryColor;
 }
@@ -137,6 +142,15 @@ a{
 		}
 }
 
+ul{
+	list-style-type: disc;
+	margin-left: 1.5em;
+	
+	li{
+		margin-bottom: .5em;
+	}
+}
+
 /* ######
     1.b Color vars
 */
@@ -151,6 +165,8 @@ a{
 @lightColorShade: #bdc3c7;
 
 @darkColor: #2c3e50;
+
+@errorMsgColor: #e74c3c;
 
 /* #####
     2. Page elements
@@ -484,6 +500,8 @@ article{
 
 .page-section{
 	 padding: 3em 0;
+	z-index: 5;
+	position: relative;
 }
 
 /* #####
@@ -505,7 +523,8 @@ input, textarea{
 	
 	font-size: 1em;
 	border: 0;
-	border-bottom: solid .3rem @primaryColor;
+	border-bottom: solid .1rem @primaryColor;
+	outline: 0;
 	
 	-webkit-appearance: none;
 	border-radius: 0;
@@ -580,6 +599,11 @@ textarea{
 		
 	}
 	
+	&.sent{
+		background-color: @secondaryColor;
+		border-color: @secondaryColorShade;
+	}
+	
 }
 
 /* #####
@@ -643,6 +667,26 @@ aside{
 		left: 0;
 	}
 }
+
+/* #####
+	2.l Alerts
+*/
+.error-msg{
+	display: none;
+	width: 100%;
+	padding: .5rem 0;
+	margin-bottom: 1em;
+	text-align: center;
+	
+	background-color: @errorMsgColor;
+	border: .3rem solid #c0392b;
+	color: #fff;
+	font-family: 'Francois One', sans-serif;
+	
+}
+
+
+
 /* #####
     3. Specific Page elements
     3.a Main Content
@@ -816,7 +860,7 @@ aside{
 	.page-section{
 		 padding: 5em 0;
 		  position: relative;
-		z-index: 5;
+	
 	}
 	
 	/* #####

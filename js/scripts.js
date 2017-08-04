@@ -127,18 +127,19 @@ function startWaypoints(){
 /* #####
   Validate Form Data
 */
-function validateForm(){
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+  
+
+function liveValidateForm(){
   
   var emailOk = false;
   var msgOk = false;
   
-  
-  //Email
-  function validateEmail(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(email);
-  }
-  
+ 
   function isEverythingOk(){
     if(emailOk && msgOk){
       $("#submitForm").removeClass("disable");
@@ -161,8 +162,18 @@ function validateForm(){
     
   });
   
-   $("input#email").keyup(function(e){
-  
+   $("#message").keyup(function(e){
+    
+     console.log(($(this).val().length));
+     
+     if($(this).val().length > 9){
+       msgOk = true;
+     } else {
+       msgOk = false;
+     }
+     
+     isEverythingOk();
+     
   });
 }
 
@@ -172,11 +183,36 @@ function validateForm(){
 function submitFormData() {
   var email = $("#email").val();
   var msg = $("#message").val();
-
-  $.post("https://formspree.io/jonasolaussen@gmail.com", {
+  var allOk = true;
+  
+  $(".error-msg").hide();
+  
+  // Validation 
+  if(!validateEmail(email)){
+    $("#email-error").fadeIn();
+    allOk = false;
+  }
+  
+  if(msg.length < 10){
+    $("#msg-error").fadeIn();
+    allOk = false;
+  }
+  
+  if(allOk){
+      $.post("https://formspree.io/jonasolaussen@gmail.com", {
       email: email,
       msg: msg
     });
+    
+    $("#submitForm").val("Skickar...");
+    
+    setTimeout(function(){
+      $("#submitForm").val("Skickat!");
+      $("#submitForm").addClass("sent");
+    }, 2000);
+  }
+  
+
 }
 
 /* #####
@@ -187,7 +223,7 @@ $(function() {
   ActiveMenu();
   infoContainers();
   startWaypoints();
-  validateForm();
+  liveValidateForm();
   
   $(".tag-line").hide();
   tagLineSlider();
