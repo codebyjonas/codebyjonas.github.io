@@ -199,9 +199,11 @@ function submitFormData() {
   }
   
   if(allOk){
-      $.post("https://formspree.io/jonasolaussen@gmail.com", {
-      email: email,
-      msg: msg
+     $.ajax({
+        url: "https://formspree.io/jonasolaussen@gmail.com",
+        method: "POST",
+        data: {message: "hello!"},
+        dataType: "json"
     });
     
     $("#submitForm").val("Skickar...");
