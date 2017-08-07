@@ -216,18 +216,20 @@
         </article>
 
         <fieldset class="grid-50 col last">
-          <h3>Kontaktformulär:</h3>
-          <span class="input-container">
-            <i class="fa fa-check" aria-hidden="true"></i>
-            <i class="fa fa-times" aria-hidden="true"></i>
-            <input type="text" id="email" placeholder="Din e-post">            
-          </span>
-          <span class="input-container">
-            <textarea name="message" id="message" placeholder="Skriv ditt meddelande här..."></textarea>
-          </span>
-          <div class="error-msg" id="email-error">Kontrollera din email adress.</div>
-          <div class="error-msg" id="msg-error">Ditt meddelande måste vara minst 10 tecken.</div>
-          <input type="button" value="Skicka" class="btn" id="submitForm">
+          <form action="https://formspree.io/jonasolaussen@gmail.com" method="POST">
+            <h3>Kontaktformulär:</h3>
+            <span class="input-container">
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <i class="fa fa-times" aria-hidden="true"></i>
+              <input type="text" id="email" placeholder="Din e-post">            
+            </span>
+            <span class="input-container">
+              <textarea name="message" id="message" placeholder="Skriv ditt meddelande här..."></textarea>
+            </span>
+            <div class="error-msg" id="email-error">Kontrollera din email adress.</div>
+            <div class="error-msg" id="msg-error">Ditt meddelande måste vara minst 10 tecken.</div>
+            <input type="button" value="Skicka" class="btn" id="submitForm">
+          </form>
         </fieldset>
 
         <div class="clear"></div>
