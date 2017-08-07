@@ -164,7 +164,6 @@ function liveValidateForm(){
   
    $("#message").keyup(function(e){
     
-     console.log(($(this).val().length));
      
      if($(this).val().length > 9){
        msgOk = true;
@@ -202,7 +201,7 @@ function submitFormData() {
      $.ajax({
         url: "https://formspree.io/jonasolaussen@gmail.com",
         method: "POST",
-        data: {message: "hello!"},
+        data: {email: email, message: msg},
         dataType: "json"
     });
     
