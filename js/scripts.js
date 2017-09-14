@@ -164,7 +164,6 @@ function liveValidateForm(){
   
    $("#message").keyup(function(e){
     
-     console.log(($(this).val().length));
      
      if($(this).val().length > 9){
        msgOk = true;
@@ -199,9 +198,11 @@ function submitFormData() {
   }
   
   if(allOk){
-      $.post("https://formspree.io/jonasolaussen@gmail.com", {
-      email: email,
-      msg: msg
+     $.ajax({
+        url: "https://formspree.io/jonasolaussen@gmail.com",
+        method: "POST",
+        data: {email: email, message: msg},
+        dataType: "json"
     });
     
     $("#submitForm").val("Skickar...");
