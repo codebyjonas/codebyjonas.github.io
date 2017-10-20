@@ -201,6 +201,7 @@ ul{
 	}
 }
 
+
 nav{
 	width: 80%;
 	max-width: 400px;
@@ -212,10 +213,10 @@ nav{
 	padding: 3em;
 	box-sizing: border-box;
 	
-	background-color: @darkColor;
-	color: @lightColor;
-	border-right: solid 1em #fff;
 	
+	color: @lightColor;
+	background-color: @darkColor;
+
 	.transition(all 500ms);
 	
 	&.open{
@@ -227,7 +228,7 @@ nav{
 		margin-bottom: 1em;
 		padding-bottom: .5rem;
 		
-		border-bottom: .3rem solid @lightColor;
+		border-bottom: .1rem solid @lightColor;
 	}
 
 	li{
@@ -692,13 +693,16 @@ aside{
     3. Specific Page elements
     3.a Main Content
 */
+#bg-vid{
+	display: none;
+}
 
 #main-content{
-    background-color: @primaryColor;
+    min-height: 100vh;
     color: @lightColor;
     border-bottom: solid 1em @lightColorShade; 
-    
-    height: 100vh;
+    background-color: rgba(52, 152, 219, 1);
+
     text-align: center;
     box-sizing: border-box;
     position: relative;
@@ -778,7 +782,7 @@ aside{
 		position: relative;
 		box-sizing: border-box;	
 	
-		background-color: @secondaryColor;	
+		background-color: rgba(26, 188, 156, .8);	
 	
 	.section-heading{
 		color: #fff;
@@ -789,12 +793,6 @@ aside{
 		z-index: 2;
 	}
 	
-	.bg-parallellogram{
-		z-index: 1;
-		
-		background-color: @secondaryColorShade;
-	}
-
 	
 }
 
@@ -884,9 +882,26 @@ footer{
     3. Specific Page elements
     3.a Main Content
 	*/
-	
+	#bg-vid{
+		display: block;
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100vw;
+		min-height: 100vh;
+		width: auto;
+		height: auto;
+		-ms-transform: translateX(-50%) translateY(-50%);
+		-moz-transform: translateX(-50%) translateY(-50%);
+		-webkit-transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%);
+		background: url(img/bg-vid.jpg) no-repeat;
+		background-size: cover; 
+		z-index: -1;
+	}
+
 	#main-content{
-		
+		background-color:  rgba(52, 152, 219, .5);
 		.text-container{
 			width: 85%;
 			
